@@ -8,8 +8,8 @@ import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 
 public class MainServer extends UnicastRemoteObject implements LocadoraRemota {
-
-	Testando;
+    
+	
 	
 	private Locadora[] locadoras;
 	int proxima;
@@ -43,8 +43,9 @@ public class MainServer extends UnicastRemoteObject implements LocadoraRemota {
 	}
 
 	@Override
-	public void cadastrarLocadora() throws RemoteException {
+	public void cadastrarLocadora(int id, String nome) throws RemoteException {
 		// TODO Auto-generated method stub
+		Locadora locadora = new Locadora();
 		
 	}
 
