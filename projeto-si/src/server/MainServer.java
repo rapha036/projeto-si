@@ -12,14 +12,17 @@ public class MainServer extends UnicastRemoteObject implements LocadoraRemota {
 	
 	
 	private Locadora[] locadoras;
-	int proxima;
+	private Carro[] carros;
+	
+	int proximaLocadora;
+	int proximoCarro;
 	
 	public MainServer(int tamanho) throws RemoteException {
 			
 			super();
 			
 			this.locadoras = new Locadora[tamanho];
-			this.proxima = 0;
+			this.proximaLocadora = 0;
 		}
 		
 	
@@ -45,14 +48,33 @@ public class MainServer extends UnicastRemoteObject implements LocadoraRemota {
 	@Override
 	public void cadastrarLocadora(int id, String nome) throws RemoteException {
 		// TODO Auto-generated method stub
-		Locadora locadora = new Locadora();
+				
+		if (this.proximaLocadora == this.locadoras.length) {
+			proximaLocadora = 0;	
+		}
+		
+		locadoras[proximaLocadora] = new Locadora(id, nome);
+		proximaLocadora++;
+		
+		new Excecao("Locadora \"" + nome + "\" inserida com sucesso!");
 		
 	}
 
 	@Override
-	public void cadastrarCarros() throws RemoteException {
+	public void cadastrarCarro(int id, String nome, String placa, double precoLocacaoPorSeg, String nomeLocadora) throws RemoteException {
 		// TODO Auto-generated method stub
+		//if (this.proximoCarro == this.carros.length) {
+		//	proximoCarro = 0;	
+		//}
 		
+		Carro carro = new Carro(id, nome, placa, precoLocacaoPorSeg);
+		
+		insereCarroLocadora(carro[proximoCarro], nomeLocadora);
+		
+		//carros[proximoCarro] = new Locadora(id, nome);
+		//proxima++;
+		
+		new Excecao("Carro \"" + nome + "\" cadastrado na " + nomeLocadora + " com sucesso!");
 	}
 
 	@Override
