@@ -9,6 +9,7 @@ import java.rmi.server.UnicastRemoteObject;
 
 public class MainServer extends UnicastRemoteObject implements LocadoraRemota {
 
+	Testando;
 	
 	private Locadora[] locadoras;
 	int proxima;
