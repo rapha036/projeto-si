@@ -58,6 +58,11 @@ public class MainServer extends UnicastRemoteObject implements LocadoraRemota {
 		
 		new Excecao("Locadora \"" + nome + "\" inserida com sucesso!");
 		
+		for(locadora[proximaLocadora] : locadoras) {
+		    
+		    
+		}
+		
 	}
 
 	@Override
@@ -69,7 +74,7 @@ public class MainServer extends UnicastRemoteObject implements LocadoraRemota {
 		
 		Carro carro = new Carro(id, nome, placa, precoLocacaoPorSeg);
 		
-		insereCarroLocadora(carro[proximoCarro], nomeLocadora);
+		insereCarroLocadora(carro, nomeLocadora);
 		
 		//carros[proximoCarro] = new Locadora(id, nome);
 		//proxima++;
