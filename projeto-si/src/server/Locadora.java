@@ -10,12 +10,10 @@ public class Locadora {
 	private List<Carro> carros;
 	
 	
-	public Locadora(int id, String nome, List<Locacao> locacoes, List<Carro> carros) {
+	public Locadora(int id, String nome) {
 		super();
 		this.id = id;
 		this.nome = nome;
-		this.locacoes = locacoes;
-		this.carros = carros;
 	}
 	
 	public int getId() {
