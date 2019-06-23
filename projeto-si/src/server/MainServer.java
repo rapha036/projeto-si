@@ -73,8 +73,11 @@ public class MainServer extends UnicastRemoteObject implements LocadoraRemota {
 		//	proximoCarro = 0;	
 		//}
 		
-		-- > Carro carro = new Carro(id, nome, placa, restricao, precoLocacaoPorSeg);
+		Carro carro = new Carro(id, nome, placa, restricao, precoLocacaoPorSeg);
 		
+		for () {
+		   if (locadoras.getNome().equals == nomeLocadora) {}
+		}
 		insereCarroLocadora(carro, nomeLocadora);
 		
 		//carros[proximoCarro] = new Locadora(id, nome);
@@ -82,6 +85,8 @@ public class MainServer extends UnicastRemoteObject implements LocadoraRemota {
 		
 		new Excecao("Carro \"" + nome + "\" cadastrado na " + nomeLocadora + " com sucesso!");
 	}
+    
+
     
 	@Override
 	public void cadastrarClientes() throws RemoteException {
