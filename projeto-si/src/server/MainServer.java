@@ -31,7 +31,7 @@ public class MainServer extends UnicastRemoteObject implements LocadoraRemota {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		try {
+	    /*	try {
 			MainServer ms = new MainServer(10);
 			Registry r = LocateRegistry.createRegistry(2126);
 			Naming.rebind("rmi://localhost:2126/ms", ms);
@@ -41,7 +41,7 @@ public class MainServer extends UnicastRemoteObject implements LocadoraRemota {
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 			
-		}
+		} */
 		
 		
 	}
@@ -76,9 +76,12 @@ public class MainServer extends UnicastRemoteObject implements LocadoraRemota {
 		Carro carro = new Carro(id, nome, placa, restricao, precoLocacaoPorSeg);
 		
 		for () {
-		   if (locadoras.getNome().equals == nomeLocadora) {}
+		   if (locadoras.getNome().equals == nomeLocadora) {
+		       locadoras.insereCarro(carro);
+		   }
 		}
-		insereCarroLocadora(carro, nomeLocadora);
+	    
+		locadorasinsereCarroLocadora(carro, nomeLocadora);
 		
 		//carros[proximoCarro] = new Locadora(id, nome);
 		//proxima++;
