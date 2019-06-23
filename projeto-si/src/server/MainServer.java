@@ -12,7 +12,8 @@ public class MainServer extends UnicastRemoteObject implements LocadoraRemota {
 	
     
 	private Locadora[] locadorasCliente; //quantidade de locadoras permitidas para acessar o servidor;
-	private Carro[] carros;
+	private List<Carro> carros; //Lista de Carros
+	private List<Locadora> locadoras; //Lista de Locadoras
 	
 	int proximaLocadora;
 	int proximoCarro;
@@ -81,7 +82,7 @@ public class MainServer extends UnicastRemoteObject implements LocadoraRemota {
 		
 		new Excecao("Carro \"" + nome + "\" cadastrado na " + nomeLocadora + " com sucesso!");
 	}
-
+    
 	@Override
 	public void cadastrarClientes() throws RemoteException {
 		// TODO Auto-generated method stub
