@@ -10,8 +10,8 @@ import java.rmi.server.UnicastRemoteObject;
 public class MainServer extends UnicastRemoteObject implements LocadoraRemota {
     
 	
-	
-	private Locadora[] locadoras;
+    
+	private Locadora[] locadorasCliente; //quantidade de locadoras permitidas para acessar o servidor;
 	private Carro[] carros;
 	
 	int proximaLocadora;
@@ -21,7 +21,7 @@ public class MainServer extends UnicastRemoteObject implements LocadoraRemota {
 			
 			super();
 			
-			this.locadoras = new Locadora[tamanho];
+			this.locadorasCliente = new Locadora[tamanho];
 			this.proximaLocadora = 0;
 		}
 		
@@ -66,13 +66,13 @@ public class MainServer extends UnicastRemoteObject implements LocadoraRemota {
 	}
 
 	@Override
-	public void cadastrarCarro(int id, String nome, String placa, double precoLocacaoPorSeg, String nomeLocadora) throws RemoteException {
+	public void cadastrarCarro(int id, String nome, String placa, boolean restricao,  double precoLocacaoPorSeg, String nomeLocadora) throws RemoteException {
 		// TODO Auto-generated method stub
 		//if (this.proximoCarro == this.carros.length) {
 		//	proximoCarro = 0;	
 		//}
 		
-		Carro carro = new Carro(id, nome, placa, precoLocacaoPorSeg);
+		-- > Carro carro = new Carro(id, nome, placa, restricao, precoLocacaoPorSeg);
 		
 		insereCarroLocadora(carro, nomeLocadora);
 		
