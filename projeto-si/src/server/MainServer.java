@@ -31,17 +31,19 @@ public class MainServer extends UnicastRemoteObject implements LocadoraRemota {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-	    /*	try {
-			MainServer ms = new MainServer(10);
-			Registry r = LocateRegistry.createRegistry(2126);
-			Naming.rebind("rmi://localhost:2126/ms", ms);
-			System.out.println("Servidor no ar!");
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-			
-		} */
+	    	try {
+    			MainServer ms = new MainServer(10);
+    			Registry r = LocateRegistry.createRegistry(2126);
+    			Naming.rebind("rmi://localhost:2126/ms", ms);
+    			System.out.println("Servidor no ar!");
+    		} catch (RemoteException e) {
+    			e.printStackTrace();
+    		} catch (MalformedURLException e) {
+    			e.printStackTrace();
+    			
+    		} 
+		
+		
 		
 		
 	}
@@ -53,7 +55,7 @@ public class MainServer extends UnicastRemoteObject implements LocadoraRemota {
 		if (this.proximaLocadora == this.locadoras.length) {
 			proximaLocadora = 0;	
 		}
-		
+
 		locadoras[proximaLocadora] = new Locadora(id, nome);
 		proximaLocadora++;
 		
@@ -74,14 +76,13 @@ public class MainServer extends UnicastRemoteObject implements LocadoraRemota {
 		//}
 		
 		Carro carro = new Carro(id, nome, placa, restricao, precoLocacaoPorSeg);
-		
-		for () {
+		for(int i = 0; i < locadoras.size(); i++){
 		   if (locadoras.getNome().equals == nomeLocadora) {
 		       locadoras.insereCarro(carro);
 		   }
 		}
 	    
-		locadorasinsereCarroLocadora(carro, nomeLocadora);
+		locadoras.insereCarroLocadora(carro);
 		
 		//carros[proximoCarro] = new Locadora(id, nome);
 		//proxima++;
@@ -89,7 +90,7 @@ public class MainServer extends UnicastRemoteObject implements LocadoraRemota {
 		new Excecao("Carro \"" + nome + "\" cadastrado na " + nomeLocadora + " com sucesso!");
 	}
     
-
+    
     
 	@Override
 	public void cadastrarClientes() throws RemoteException {
